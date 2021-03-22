@@ -5,8 +5,6 @@ using UnityEngine;
 public class LightConeScript : MonoBehaviour
 {
 
-    public float timeToKill;
-
     public GameObject deadBodyPrefab;
 
     // Start is called before the first frame update
@@ -26,11 +24,6 @@ public class LightConeScript : MonoBehaviour
         if (otherCollider.tag == "Human")
         {
             otherCollider.GetComponent<HumanBehaviour>().timeBurnt += Time.deltaTime;
-            if(otherCollider.GetComponent<HumanBehaviour>().timeBurnt > timeToKill)
-            {
-                Instantiate(deadBodyPrefab, otherCollider.transform.position, otherCollider.transform.rotation);
-                Destroy(otherCollider.gameObject);
-            }
         }
     }
 }
